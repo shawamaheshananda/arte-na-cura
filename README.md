@@ -1,24 +1,76 @@
-# PROJECT_NAME
+# Projeto Template — Estrutura Base
 
-## Visão geral
-Projeto hospedado em VPS com:
-- Docker
-- Docker Compose
-- Traefik
-- GitHub
-- Webhook + PM2
+Este repositório é o template padrão para todos os projetos da infraestrutura.
+
+Cada projeto criado a partir deste template deve conter:
+
+- Estrutura completa de marketing, produto e automação
+- Integração com webhook de deploy automático
+- Organização por domínio de responsabilidade
+
+---
 
 ## Estrutura
-- `site/` → arquivos estáticos
-- `docker-compose.yml` → container e Traefik
-- `deploy.sh` → deploy no VPS
-- `publish.sh` → envio do código
-- `docs/` → documentação
 
-## Fluxo de trabalho
+### Estratégia e Marca
+- brand/
+- context/
+- docs/
 
-1. Editar localmente
-2. Rodar:
+### Presença Digital
+- site/
+- lp/
+- blog/
+
+### Produto e Backend
+- app/
+- api/
+- integrations/
+- automations/
+- agents/
+
+### Comercial e Dados
+- crm/
+- data/
+
+### Conteúdo e Mídia
+- media/
+- social/
+- ads/
+- email/
+- whatsapp/
+
+### Recursos
+- assets/
+
+---
+
+## Deploy
+
+O deploy é feito automaticamente via webhook:
+
+push → GitHub → webhook → VPS → deploy.sh
+
+---
+
+## Padrão
+
+Todos os projetos devem seguir esta estrutura.
+
+Não adicionar pastas fora desse padrão sem justificativa clara.
+
+---
+
+## Segurança
+
+- Nunca versionar arquivos `.env`
+- Usar `.env.example` como referência
+
+---
+
+## Uso do Template
+
+Para criar um novo projeto:
 
 ```bash
-./publish.sh "mensagem"
+cp -r /apps/template /apps/novo-projeto

@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [ -z "$1" ]; then
-  echo 'Use: ./publish.sh "mensagem do commit"'
+  echo "Digite uma mensagem de commit"
   exit 1
 fi
 
 git add .
 git commit -m "$1"
-git push
+git push origin main

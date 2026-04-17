@@ -1,13 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
-cd /apps/elemental
+echo "===> Iniciando deploy"
 
 echo "===> Atualizando código"
-git fetch origin
-git reset --hard origin/main
+git pull origin main
 
 echo "===> Subindo containers"
 docker compose up -d --build
 
-echo "===> Deploy finalizado"
+echo "===> Limpando imagens antigas"
+docker image prune -f
+
+echo "===> Deploy finalizado com sucesso"
