@@ -1,3 +1,7 @@
+# Este arquivo é um template base.
+# Copie e ajuste para cada projeto real.
+# Não rode docker compose diretamente no template.
+
 services:
   app:
     image: nginx:alpine
@@ -5,15 +9,8 @@ services:
     volumes:
       - ./site:/usr/share/nginx/html:ro
     restart: unless-stopped
-    networks:
-      - web
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${PROJECT_NAME}.rule=Host(`${PROJECT_NAME}.ibiete.cloud`)"
+      - "traefik.http.routers.${PROJECT_NAME}.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.${PROJECT_NAME}.entrypoints=websecure"
-      - "traefik.http.routers.${PROJECT_NAME}.tls=true"
       - "traefik.http.routers.${PROJECT_NAME}.tls.certresolver=letsencrypt"
-
-networks:
-  web:
-    external: true
