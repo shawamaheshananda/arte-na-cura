@@ -82,3 +82,4 @@ cp -r /apps/template /apps/novo-projeto
 # git ok Wed Apr 22 21:40:01 -03 2026
 # reset hard Wed Apr 22 21:43:47 -03 2026
 # sem docker Wed Apr 22 21:48:07 -03 2026
+# webhook pm2 ok Wed Apr 22 22:36:57 -03 2026
