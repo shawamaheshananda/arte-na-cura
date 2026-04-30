@@ -2,9 +2,1092 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Arte na Cura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arte na Cura — Onde a arte encontra a alma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Dancing+Script:wght@400;600&family=Lato:ital,wght@0,300;0,400;1,300&family=Merriweather+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracota: #c14109;
+      --violeta: #7b146a;
+      --verde-profundo: #00675f;
+      --verde-vivo: #48af59;
+      --creme: #fff4d7;
+      --creme-escuro: #f5e8b8;
+      --texto-escuro: #2a1a0e;
+      --texto-medio: #4a3020;
+      --branco: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--creme);
+      color: var(--texto-escuro);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 244, 215, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(193, 65, 9, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo img {
+      height: 52px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--texto-medio);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracota); }
+
+    .nav-cta {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--branco);
+      background: var(--terracota);
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: #a33508; }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.9);
+    }
+
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--creme) 100%);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem 3rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde-profundo);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-titulo {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--texto-escuro);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-titulo em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    .hero-subtitulo {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--texto-medio);
+      max-width: 38ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-acoes {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primario {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--branco);
+      background: var(--terracota);
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primario:hover { background: #a33508; transform: translateY(-1px); }
+
+    .btn-secundario {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--verde-profundo);
+      text-decoration: none;
+      border-bottom: 1px solid var(--verde-profundo);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    .btn-secundario:hover { color: var(--violeta); border-color: var(--violeta); }
+
+    .hero-decorativo {
+      position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1rem;
+      color: var(--verde-vivo);
+      opacity: 0.7;
+      writing-mode: vertical-rl;
+      letter-spacing: 0.15em;
+    }
+
+    /* ─── ESSENCIA ─────────────────────────────────────────── */
+    .essencia {
+      background: var(--verde-profundo);
+      color: var(--creme);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .essencia::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: 0; right: 0;
+      height: 80px;
+      background: var(--creme);
+      clip-path: ellipse(55% 100% at 50% 0%);
+    }
+
+    .essencia::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 80px;
+      background: var(--creme);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .essencia-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .essencia-simbolo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      color: var(--verde-vivo);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .essencia h2 {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--creme);
+      margin-bottom: 2rem;
+    }
+
+    .essencia h2 em {
+      font-style: italic;
+      color: var(--verde-vivo);
+    }
+
+    .essencia p {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(255, 244, 215, 0.8);
+    }
+
+    /* ─── CAMINHOS ─────────────────────────────────────────── */
+    .caminhos {
+      padding: 7rem 2rem;
+      background: var(--creme);
+    }
+
+    .secao-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .secao-label {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .secao-titulo {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--texto-escuro);
+      margin-bottom: 1rem;
+    }
+
+    .secao-subtitulo {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--texto-medio);
+    }
+
+    .caminhos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .caminho-card {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .caminho-card:hover { transform: translateY(-4px); }
+
+    .caminho-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: saturate(0.85);
+    }
+
+    .caminho-card:hover img { transform: scale(1.04); }
+
+    .caminho-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,40,30,0.92) 0%, rgba(0,40,30,0.3) 55%, transparent 100%);
+    }
+
+    .caminho-info {
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      padding: 2rem 1.5rem 1.8rem;
+    }
+
+    .caminho-tag {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde-vivo);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .caminho-nome {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--creme);
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+
+    .caminho-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255,244,215,0.75);
+      margin-bottom: 1.2rem;
+    }
+
+    .caminho-link {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--creme);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,244,215,0.4);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .caminho-link:hover { border-color: var(--verde-vivo); color: var(--verde-vivo); }
+
+    /* ─── JORNADA ─────────────────────────────────────────── */
+    .jornada {
+      background: var(--creme-escuro);
+      padding: 7rem 2rem;
+    }
+
+    .jornada-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .jornada-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0;
+    }
+
+    .jornada-passo {
+      padding: 2.5rem 2rem;
+      border-left: 1px solid rgba(193, 65, 9, 0.15);
+      position: relative;
+    }
+
+    .jornada-passo:first-child { border-left: none; }
+
+    .passo-numero {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(193, 65, 9, 0.12);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .passo-titulo {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      margin-bottom: 0.5rem;
+    }
+
+    .passo-nome {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--texto-escuro);
+      margin-bottom: 0.8rem;
+    }
+
+    .passo-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--texto-medio);
+    }
+
+    /* ─── GUIOMAR ─────────────────────────────────────────── */
+    .guiomar {
+      padding: 7rem 2rem;
+      background: var(--creme);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .guiomar-foto {
+      position: relative;
+    }
+
+    .guiomar-foto img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 2px;
+      filter: saturate(0.85);
+    }
+
+    .guiomar-foto::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px;
+      right: 12px; bottom: 12px;
+      border: 1px solid var(--terracota);
+      border-radius: 2px;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .guiomar-foto img { position: relative; z-index: 1; }
+
+    .guiomar-conteudo {}
+
+    .guiomar-citacao {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: var(--violeta);
+      margin-bottom: 2rem;
+      font-style: normal;
+    }
+
+    .guiomar-conteudo h2 {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--texto-escuro);
+      margin-bottom: 1.5rem;
+    }
+
+    .guiomar-conteudo p {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--texto-medio);
+      margin-bottom: 1rem;
+    }
+
+    .guiomar-assinatura {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      color: var(--terracota);
+      display: block;
+      margin-top: 1.5rem;
+    }
+
+    /* ─── VALORES ─────────────────────────────────────────── */
+    .valores {
+      background: var(--texto-escuro);
+      padding: 7rem 2rem;
+    }
+
+    .valores .secao-label { color: var(--verde-vivo); }
+    .valores .secao-titulo { color: var(--creme); }
+
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .valor-item {
+      padding: 2.5rem 2rem;
+      background: rgba(255, 244, 215, 0.03);
+      border-top: 1px solid rgba(255, 244, 215, 0.08);
+      transition: background 0.3s;
+    }
+
+    .valor-item:hover { background: rgba(255, 244, 215, 0.07); }
+
+    .valor-icone {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: var(--verde-vivo);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .valor-nome {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--creme);
+      margin-bottom: 0.8rem;
+    }
+
+    .valor-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255, 244, 215, 0.55);
+    }
+
+    /* ─── VIDEO ─────────────────────────────────────────── */
+    .video-secao {
+      padding: 7rem 2rem;
+      background: var(--creme);
+      text-align: center;
+    }
+
+    .video-wrapper {
+      max-width: 820px;
+      margin: 3rem auto 0;
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      background: var(--texto-escuro);
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── CTA FINAL ─────────────────────────────────────── */
+    .cta-final {
+      background: var(--violeta);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-final::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cta-final::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta-final-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .cta-final span {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1rem;
+      color: rgba(255,244,215,0.6);
+      letter-spacing: 0.15em;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-final h2 {
+      font-family: 'Averia Serif Libre', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--creme);
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+
+    .cta-final p {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,244,215,0.7);
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-claro {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--violeta);
+      background: var(--creme);
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-claro:hover { background: #fff; transform: translateY(-1px); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--texto-escuro);
+      padding: 4rem 2rem 2rem;
+      color: rgba(255,244,215,0.5);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,244,215,0.08);
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo img { height: 44px; margin-bottom: 1rem; }
+
+    .footer-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,244,215,0.45);
+      max-width: 30ch;
+    }
+
+    .footer-col h4 {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,244,215,0.3);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-col a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(255,244,215,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--verde-vivo); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255,244,215,0.25);
+    }
+
+    .footer-local {
+      font-family: 'Dancing Script', cursive;
+      font-size: 0.95rem;
+      color: rgba(255,244,215,0.3);
+    }
+
+    /* ─── RESPONSIVO ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 0.8rem 1.2rem; }
+      .nav-links { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-visual {
+        height: 55vh;
+      }
+
+      .hero-visual::after {
+        background: linear-gradient(to bottom, transparent 50%, var(--creme) 100%);
+      }
+
+      .hero-content {
+        padding: 2.5rem 1.5rem 4rem;
+      }
+
+      .guiomar {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 5rem 1.5rem;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+      .jornada-passo { border-left: none; border-top: 1px solid rgba(193, 65, 9, 0.15); }
+      .jornada-passo:first-child { border-top: none; }
+    }
+
+    /* ─── ANIMAÇÕES ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow { animation: fadeUp 0.6s ease 0.2s both; }
+    .hero-titulo { animation: fadeUp 0.6s ease 0.35s both; }
+    .hero-subtitulo { animation: fadeUp 0.6s ease 0.5s both; }
+    .hero-acoes { animation: fadeUp 0.6s ease 0.65s both; }
+  </style>
 </head>
-<body style="background:#1a1a1a;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;text-align:center">
-  <h1>Arte na Cura — novo site em construção</h1>
+<body>
+
+<!-- ─── NAVEGAÇÃO ─────────────────────────────────────────── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="assets/logos/logo-horizontal.png" alt="Arte na Cura">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/o-espaco/">O Espaço</a></li>
+    <li><a href="/eventos/">Eventos e Programas</a></li>
+    <li><a href="/terapias/">Terapias</a></li>
+    <li><a href="/hospedagem/">Hospedagem</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
+  <a href="/fale-conosco/" class="nav-cta">Fale Conosco</a>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-visual">
+    <img src="assets/images/WhatsApp-Image-2025-05-26-at-10.22.09-4-scaled.jpeg"
+         alt="Espaço Arte na Cura — natureza e cura">
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Guarapari, Espírito Santo</span>
+    <h1 class="hero-titulo">
+      Onde a arte<br>
+      encontra <em>a alma</em>
+    </h1>
+    <p class="hero-subtitulo">
+      Um espaço vivo de cura, expressão e reconexão — onde a arte, o corpo e a espiritualidade se entrelaçam como caminhos de transformação.
+    </p>
+    <div class="hero-acoes">
+      <a href="/eventos/" class="btn-primario">Próximos Eventos</a>
+      <a href="/o-espaco/" class="btn-secundario">Conhecer o Espaço</a>
+    </div>
+    <span class="hero-decorativo">Arte · Cura · Presença</span>
+  </div>
+</section>
+
+<!-- ─── ESSÊNCIA ─────────────────────────────────────────── -->
+<section class="essencia">
+  <div class="essencia-inner">
+    <span class="essencia-simbolo">✦ nossa essência ✦</span>
+    <h2>
+      O lugar onde o corpo dança,<br>
+      a voz canta, a escuta silencia<br>
+      — e o espírito <em>se cura.</em>
+    </h2>
+    <p>
+      Inspirado nas Healing Arts, o Arte na Cura entende a arte não apenas como forma de expressão, mas como frequência viva que atravessa o corpo, a alma e o espaço com ritmo, som e presença. Aqui, ritual e improviso se encontram, o gesto vira prece e a música vira medicina.
+    </p>
+  </div>
+</section>
+
+<!-- ─── CAMINHOS ─────────────────────────────────────────── -->
+<section class="caminhos">
+  <div class="secao-header">
+    <span class="secao-label">o que oferecemos</span>
+    <h2 class="secao-titulo">Caminhos do Arte na Cura</h2>
+    <p class="secao-subtitulo">Mais que um lugar, somos um campo vivo de experiências transformadoras.</p>
+  </div>
+  <div class="caminhos-grid">
+
+    <div class="caminho-card">
+      <img src="assets/images/04-1.png" alt="Programas Terapêuticos">
+      <div class="caminho-overlay"></div>
+      <div class="caminho-info">
+        <span class="caminho-tag">9 dias de imersão</span>
+        <h3 class="caminho-nome">Programas Terapêuticos</h3>
+        <p class="caminho-desc">Retiros com foco em processos profundos de cura — saúde mental, reconexão e regeneração.</p>
+        <a href="/programas/" class="caminho-link">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="caminho-card">
+      <img src="assets/images/01-1.png" alt="Vivências e Retiros">
+      <div class="caminho-overlay"></div>
+      <div class="caminho-info">
+        <span class="caminho-tag">grupos e facilitadores</span>
+        <h3 class="caminho-nome">Vivências &amp; Retiros</h3>
+        <p class="caminho-desc">Práticas integrativas, rituais, arte e espiritualidade em conexão com a natureza.</p>
+        <a href="/vivencias/" class="caminho-link">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="caminho-card">
+      <img src="assets/images/02-1.png" alt="Hospedagem Terapêutica">
+      <div class="caminho-overlay"></div>
+      <div class="caminho-info">
+        <span class="caminho-tag">chalés e casas</span>
+        <h3 class="caminho-nome">Hospedagem Terapêutica</h3>
+        <p class="caminho-desc">Recolha-se com consciência e cuidado no campo de cura, mesmo fora dos retiros.</p>
+        <a href="/hospedagem/" class="caminho-link">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="caminho-card">
+      <img src="assets/images/03-1.png" alt="Terapias">
+      <div class="caminho-overlay"></div>
+      <div class="caminho-info">
+        <span class="caminho-tag">sessões individuais</span>
+        <h3 class="caminho-nome">Terapias</h3>
+        <p class="caminho-desc">Caminhos de cura individualizados com terapeutas dedicados ao seu processo.</p>
+        <a href="/terapias/" class="caminho-link">Saiba mais</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── JORNADA ─────────────────────────────────────────── -->
+<section class="jornada">
+  <div class="jornada-inner">
+    <div class="secao-header">
+      <span class="secao-label">o processo</span>
+      <h2 class="secao-titulo">Uma jornada em seis movimentos</h2>
+    </div>
+    <div class="jornada-grid">
+      <div class="jornada-passo">
+        <div class="passo-numero">01</div>
+        <div class="passo-titulo">Escutar o Chamado</div>
+        <h3 class="passo-nome">O início da jornada interior</h3>
+        <p class="passo-desc">Um convite à pausa. O momento de ouvir a alma e abrir espaço para o que deseja florescer.</p>
+      </div>
+      <div class="jornada-passo">
+        <div class="passo-numero">02</div>
+        <div class="passo-titulo">Acessar a Presença</div>
+        <h3 class="passo-nome">Habitar o agora</h3>
+        <p class="passo-desc">Desacelerar, respirar, sentir. Estar inteiro no momento presente é o solo da cura.</p>
+      </div>
+      <div class="jornada-passo">
+        <div class="passo-numero">03</div>
+        <div class="passo-titulo">Purificar o Campo</div>
+        <h3 class="passo-nome">Limpar e liberar</h3>
+        <p class="passo-desc">Desintoxicar-se física, emocional e energeticamente para abrir caminho ao novo.</p>
+      </div>
+      <div class="jornada-passo">
+        <div class="passo-numero">04</div>
+        <div class="passo-titulo">Expressar o Invisível</div>
+        <h3 class="passo-nome">Dar forma ao que vive dentro</h3>
+        <p class="passo-desc">A arte como ponte para a alma: pintar, cantar, dançar, escrever — curar-se expressando.</p>
+      </div>
+      <div class="jornada-passo">
+        <div class="passo-numero">05</div>
+        <div class="passo-titulo">Transmutar e Curar</div>
+        <h3 class="passo-nome">Transformar em força</h3>
+        <p class="passo-desc">Rituais e práticas que acolhem feridas e promovem verdadeira liberação.</p>
+      </div>
+      <div class="jornada-passo">
+        <div class="passo-numero">06</div>
+        <div class="passo-titulo">Integrar e Florescer</div>
+        <h3 class="passo-nome">Levar a cura para a vida</h3>
+        <p class="passo-desc">Enraizar os aprendizados, cultivar novas escolhas e florescer com consciência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GUIOMAR ─────────────────────────────────────────── -->
+<section style="padding: 7rem 2rem; background: var(--creme);">
+  <div class="guiomar" style="padding: 0;">
+    <div class="guiomar-foto">
+      <img src="assets/images/WhatsApp-Image-2025-05-26-at-10.22.09-scaled.jpeg"
+           alt="Guiomar Campbell — Idealizadora e Terapeuta">
+    </div>
+    <div class="guiomar-conteudo">
+      <blockquote class="guiomar-citacao">
+        "No Arte na Cura, a jornada começa na escuta e floresce na presença."
+      </blockquote>
+      <h2 class="secao-titulo">Quem cuida do Arte na Cura</h2>
+      <p>Guiomar Campbell é a idealizadora e terapeuta por trás do Arte na Cura. Com profundidade, presença e escuta ativa, ela criou um espaço onde a cura acontece em movimento — pelo corpo, pelo toque, pela voz e pelo silêncio.</p>
+      <p>Um campo de vibração onde a arte pulsa como caminho, e cada pessoa encontra seu próprio ritmo de transformação.</p>
+      <span class="guiomar-assinatura">Guiomar Campbell</span>
+      <span style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.72rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--verde-profundo); display: block; margin-top: 0.3rem;">Idealizadora e Terapeuta</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VALORES ─────────────────────────────────────────── -->
+<section class="valores">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="secao-header">
+      <span class="secao-label">nossa essência viva</span>
+      <h2 class="secao-titulo">O que nos guia</h2>
+    </div>
+    <div class="valores-grid">
+      <div class="valor-item">
+        <span class="valor-icone">🌸</span>
+        <h3 class="valor-nome">Amorosidade</h3>
+        <p class="valor-desc">Acolher é mais importante que ensinar. Nosso fazer é guiado pelo coração — com gentileza e respeito ao tempo de cada ser.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-icone">🌿</span>
+        <h3 class="valor-nome">Presença</h3>
+        <p class="valor-desc">Estar inteiro no aqui e agora. A cura encontra passagem no silêncio, no toque e no olhar que vê sem julgamento.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-icone">🌀</span>
+        <h3 class="valor-nome">Movimento</h3>
+        <p class="valor-desc">Nada é fixo, tudo está em fluxo. A cura é corporal, energética, emocional e simbólica — seguindo o ritmo da vida.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-icone">✨</span>
+        <h3 class="valor-nome">Expressão Viva</h3>
+        <p class="valor-desc">Cantar, dançar, pintar, escrever — tudo pode ser oração em movimento. A expressão é linguagem da alma.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-icone">🔥</span>
+        <h3 class="valor-nome">Autenticidade</h3>
+        <p class="valor-desc">Não usamos máscaras. Honramos a trajetória de cada pessoa como única e sagrada.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-icone">🌱</span>
+        <h3 class="valor-nome">Espiritualidade Livre</h3>
+        <p class="valor-desc">Sem dogmas, sem hierarquias. Apenas presença, verdade e intenção — onde o divino se revela no silêncio e na natureza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VÍDEO ─────────────────────────────────────────────── -->
+<section class="video-secao">
+  <div class="secao-header">
+    <span class="secao-label">um olhar real</span>
+    <h2 class="secao-titulo">Sinta a essência do nosso espaço</h2>
+    <p class="secao-subtitulo">Assista à entrevista exibida na TV local e conheça o Arte na Cura pelas palavras de Guiomar.</p>
+  </div>
+  <div class="video-wrapper">
+    <video controls preload="none"
+           poster="assets/images/WhatsApp-Image-2025-06-10-at-21.02.56.jpeg">
+      <source src="assets/images/Sitio-Arte-na-Cura.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ─────────────────────────────────────────── -->
+<section class="cta-final">
+  <div class="cta-final-inner">
+    <span>✦ um convite ✦</span>
+    <h2>Pronto para iniciar sua jornada de cura?</h2>
+    <p>O Arte na Cura está esperando por você. Venha conhecer o espaço, participar de um evento ou simplesmente dar o primeiro passo.</p>
+    <a href="/fale-conosco/" class="btn-claro">Entrar em Contato</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img src="assets/logos/logo-horizontal.png" alt="Arte na Cura" class="footer-logo" style="height: 44px; margin-bottom: 1rem; opacity: 0.7; display: block;">
+      <p class="footer-desc">Um santuário de cura, expressão e reconexão no coração da Mata Atlântica, em Guarapari — ES.</p>
+    </div>
+    <div class="footer-col">
+      <h4>O Espaço</h4>
+      <ul>
+        <li><a href="/o-espaco/">Conheça o Lugar</a></li>
+        <li><a href="/eventos/">Eventos e Programas</a></li>
+        <li><a href="/terapias/">Terapias</a></li>
+        <li><a href="/hospedagem/">Hospedagem</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="/fale-conosco/">Fale Conosco</a></li>
+        <li><a href="https://wa.me/5527996183228">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/artenacura" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Arte na Cura. Todos os direitos reservados.</span>
+    <span class="footer-local">Guarapari, Espírito Santo</span>
+  </div>
+</footer>
+
 </body>
 </html>
